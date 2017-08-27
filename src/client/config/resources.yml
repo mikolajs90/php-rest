@@ -1,0 +1,23 @@
+user:
+    form_prefix: user_form_
+    key: id
+    fields:
+        - name
+        - address
+        - postal_code
+        - city
+        - email
+        - phone
+    sort_fields:
+        -
+        - id
+        - name
+        - address
+        - postal_code
+        - city
+        - email
+        - phone
+
+    search:
+        - email
+        - postal_code

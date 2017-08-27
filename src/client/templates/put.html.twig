@@ -1,0 +1,18 @@
+<h4>EDIT</h4>
+<form method="post">
+    <input type="hidden" name="{{ user.form_prefix }}method" value="put"/>
+    <label>
+        {{ user.key }}
+        <input type="text" name="{{ user.form_prefix }}{{ user.key }}"/>
+    </label><br/>
+
+    {% for field in user.fields %}
+        <label>
+            {{ field }}
+            <input type="text" name="{{ user.form_prefix }}{{ field }}"/>
+            <input type="checkbox" name="{{ user.form_prefix }}send_{{ field }}"/>
+        </label><br/>
+    {% endfor %}
+
+    <input type="submit" value="update"/>
+</form>

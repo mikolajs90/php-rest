@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>client form</title>
+</head>
+<body>
+
+<div id="content">
+    <div style="width: 100%;">
+        <div style="float: left; width: 50%">
+            <h1>REST client form</h1>
+            <hr/>
+            {% include 'get.html.twig' %}
+            <hr/>
+            {% include 'post.html.twig' %}
+            <hr/>
+            {% include 'put.html.twig' %}
+            <hr/>
+            {% include 'delete.html.twig' %}
+        </div>
+        <div style="float: left; width: 40%; margin-left: 10px">
+            {% if response %}
+                <p>Uri: {{ response.request.uri }}</p>
+                <p>Code: {{ response.code }}</p>
+                Response body
+                <pre>{{ dump(response.body) }}</pre>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

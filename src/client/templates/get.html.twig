@@ -1,0 +1,48 @@
+<h4>SEARCH</h4>
+<form method="post">
+    <input type="hidden" name="{{ user.form_prefix }}method" value="get"/>
+    <label>
+        {{ user.key }}
+        <input type="text" name="{{ user.form_prefix }}{{ user.key }}" size="5"/>
+    </label><br/>
+    {% for search in user.search %}
+    <label>
+        {{ search }}
+        <input type="text" name="{{ user.form_prefix }}{{ search }}" size="5"/>
+    </label><br/>
+    {% endfor %}
+
+    <label>
+        sort by
+        <select name="{{ user.form_prefix }}sort_by">
+            {% for field in user.sort_fields %}
+                <option value="{{ field }}">{{ field }}</option>
+            {% endfor %}
+        </select>
+    </label>
+
+    <label>
+        sort order
+        <select name="{{ user.form_prefix }}sort_order">
+            <option value=""></option>
+            <option value="ascending">ascending</option>
+            <option value="descending">descending</option>
+        </select>
+    </label>
+
+    <label>
+        take
+        <input type="text" name="{{ user.form_prefix }}take" size="5"/>
+    </label>
+
+    <label>
+        format
+        <select name="{{ user.form_prefix }}format">
+            <option value=""></option>
+            <option value="json">json</option>
+            <option value="xml">xml</option>
+        </select>
+    </label><br/>
+
+    <input type="submit" value="find"/>
+</form>

@@ -1,0 +1,13 @@
+uri: http://nginx/
+
+credentials:
+    user: username
+    pw: password
+
+resources:
+    users:
+      methods:
+          - get
+          - post
+          - put
+          - delete

@@ -1,0 +1,12 @@
+Do uruchomienia projektu konieczne są:
+    - composer
+    - docker
+    - docker-compose
+    
+Po pobraniu repozytorium należy
+    - zainstalować zależności z composera
+    - zbudować kontener
+
+Powyższe czynności można wykonać uruchamiając skrytp init.sh.
+
+Po uruchomieniu kontenera aplikacja klienta api dostępna jest pod adresem client.loc.

@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+    mysql:
+        build: mysql
+        ports:
+            - 3306:3306
+        volumes:
+            - /var/lib/mysql
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_USER: api 
+            MYSQL_PASSWORD: api
+            MYSQL_DATABASE: api
+
+    nginx:
+        image: nginx:latest
+        ports:
+            - 80:80
+        restart: always
+        volumes:
+            - ./nginx/conf:/etc/nginx/conf.d
+            - ./src:/code
+        depends_on:
+            - php
+
+    php:
+        build: php
+        expose:
+            - 9000
+        restart: always
+        volumes:
+            - ./php/conf/php.ini:/usr/local/etc/php/conf.d/custom.ini
+            - ./src:/code

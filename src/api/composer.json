@@ -1,0 +1,18 @@
+{
+    "require": {
+        "silex/silex": "~2.0",
+        "doctrine/dbal": "~2.2",
+        "symfony/serializer": "^3.3",
+        "monolog/monolog": "^1.23",
+        "symfony/validator": "^3.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rest\\": "src/Rest"
+        }
+    },
+    "require-dev": {
+        "symfony/browser-kit": "^3.3",
+        "symfony/css-selector": "^3.3"
+    }
+}

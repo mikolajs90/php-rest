@@ -1,0 +1,14 @@
+<h4>ADD</h4>
+<form method="post">
+    <input type="hidden" name="{{ user.form_prefix }}method" value="post"/>
+
+    {% for field in user.fields %}
+        <label>
+            {{ field }}
+            <input type="text" name="{{ user.form_prefix }}{{ field }}"/>
+            <input type="hidden" name="{{ user.form_prefix }}send_{{ field }}" value="on"/>
+        </label><br/>
+    {% endfor %}
+    
+    <input type="submit" value="add"/>
+</form>

@@ -1,0 +1,10 @@
+<h4>DELETE</h4>
+<form method="post">
+    Delete
+    <input type="hidden" name="{{ user.form_prefix }}method" value="delete"/>
+    <label>
+        {{ user.key }}
+        <input type="text" name="{{ user.form_prefix }}{{ user.key }}"/>
+    </label><br/>
+    <input type="submit" value="delete"/>
+</form>
