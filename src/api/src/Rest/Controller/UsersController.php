@@ -1,6 +1,4 @@
-<?php
-
-namespace Rest\Controller;
+mespace Rest\Controller;
 
 use Rest\Entity\User;
 use Rest\Repository\UserRepository;
@@ -66,8 +64,8 @@ class UsersController
         $this->getUserOrThrowException($user_id);
 
         $updated = User::getUpdatedFieldsFromRequest($this->request);
-        $errors = $this->validateUpdatedFields($updated);
-        if (count($errors) == 0) {
+        $errorsCount = $this->validateUpdatedFields($updated);
+        if ($errorsCount == 0) {
             $this->userRepository->updateUser($user_id, $updated);
             return new Response('record updated', 201);
         }
@@ -86,11 +84,11 @@ class UsersController
 
     private function validateUpdatedFields($updated)
     {
-        $errors = [];
+        $count = 0;
         foreach ($updated as $field => $value) {
             $e = $this->validator->validatePropertyValue(User::class, $field, $value);
-            $errors = array_merge($errors, is_array($e) ? $e : []);
+            $count += $e->count();
         }
-        return $errors;
+        return $count;
     }
 }
